@@ -1,0 +1,17 @@
+## pytorch 中的乘法操作子
+
+* : mapping to mul()
+@ : mapping to matmul()
+torch.dot()
+    向量相乘得到一个标量，必须都是一维的
+torch.matmul()
+    矩阵相乘，会进行广播
+torch.mm()
+    矩阵相乘，不会广播，必须满足维度条件，两矩阵最多是2维
+torch.mul(a, b, *, out=None)
+    若a是Tensor， b是scalar， 则将a中的每个元素乘以b，得到结果与a同形状
+    若a是Tensor, b是Tensor，则会先广播，保持a，b维数一致，然后a与b， element wise相乘（点乘），如维度为(1,m) and (1,m)
+torch.mv()
+    矩阵向量乘法，矩阵在前，向量在后，如维度为(1,m)和(m)
+torch.bmm()
+    批量矩阵相乘，不会广播，必须满足维度条件，a，b最多是3维，且a，b的第一维必须相同（批量维）
